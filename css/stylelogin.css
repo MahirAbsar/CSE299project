@@ -1,0 +1,118 @@
+/* import fonts from google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Hind+Vadodara:wght@300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,700;1,900&family=Roboto&family=Sofia&display=swap');
+
+:root {
+  --grey300: #D3C791;
+  --grey100: #FAF099;
+  --skyblue: #0DCFDE;
+  --grey: #6E6E6E;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --anton: "Anton", sans-serif;
+  --hindvadodara: "Hind Vadodara", sans-serif;
+  --lato: "Lato", sans-serif;
+  --roboto: "Roboto", sans-serif;
+  --sofia: "Sofia", cursive;
+
+}
+
+.primary-color{
+  color: var(--skyblue);
+}
+.bg-image{
+  background-image: url(../images/WebBackground.jpg);
+}
+.bg-color{
+  background-color: var(--skyblue) !important;
+}
+.text-color{
+  color: var(--black);
+}
+.font-hindvadodara{
+  font-family: var(--hindvadodara);
+}
+.bar-color{
+  color: var(--skyblue);
+}
+
+/* header */
+header{
+  font-family: var(--hindvadodara);
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration-color: var(--black);
+  background-image: url("/images/WebBackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+a:link{
+  color: var(--black);
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.container{
+  height: 550px;
+  width: 1300px;
+}
+
+
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type=text], input[type=password]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr{
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: var(--skyblue);
+  color: var(--black);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.titlecontainer {
+  text-align: center;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.textcontainer {
+  text-align: center;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+span.psw {
+  float: right;
+}

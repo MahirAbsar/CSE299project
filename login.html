@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap   -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome   -->
+    <script src="https://kit.fontawesome.com/ac2760b985.js" crossorigin="anonymous"></script>
+
+    <!-- Slick Slider   -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <title>Blog Web Application</title>
+
+    <!-- Custom style   -->
+    <link rel="stylesheet" href="./css/stylelogin.css"/>
+  </head>
+
+
+  <!--------------------------------------------------------body ----------------------------------------------------->
+  <body>
+    <header>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-8 col-8">
+            <a href="index.html">
+            <img src="./images/WebsiteLogo.png" alt="WebsiteLogo.png" width="200" height="80"/></a>
+          </div>
+
+          <div class="col-md-5 col-sm-16 col-16">
+            <!-- column size for medium size devices| column size for small size devices |specifies 6 column width to div tag-->
+            <div class="btn-group">
+              <button
+              class="btn dropdown-toggle my-md-4 my-4 text-black"
+              style="background-color: transparent;"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Resources</button><!-- my=margin y md=(prefix)medium   -->
+            <div class="dropdown-menu" style="background-color: var(--skyblue);">
+              <a href="http://www.northsouth.edu/" class="dropdown-item">North South University</a>
+              <a href="#" class="dropdown-item">About us</a>
+              <a href="#" class="dropdown-item">???</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-12 text-right">
+          <p class="my-md-4 header-links">
+            <a href="#" target="_blank" class="px-2">Blogs</a>
+            <a href="signup.html" target="_blank" class="px-2">Sign Up</a>
+            <a href="login.html" target="_blank" class="px-1">Log In</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </header>
+
+
+
+
+    <!----------------------------------------------- login Form-------------------------------------------->
+    <form action="/action_page.php">
+      <div class="container">
+        <p></p>
+        <h2>Login Form</h2>
+        <hr>
+
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+
+        <span class="psw">Forgot <a href="#">password?</a></span>
+
+        <div class="textcontainer">
+          <p>
+            <h>Don't have an account? Create an account </h>
+            <a href="signup.html" target="blank">here.</a>
+          </p>
+        </div>
+      </div>
+    </form>
+
+
+
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

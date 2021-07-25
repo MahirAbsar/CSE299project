@@ -1,0 +1,121 @@
+/* import fonts from google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Hind+Vadodara:wght@300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,700;1,900&family=Roboto&family=Sofia&display=swap');
+
+:root {
+  --grey300: #D3C791;
+  --grey100: #FAF099;
+  --skyblue: #0DCFDE;
+  --grey: #6E6E6E;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --anton: "Anton", sans-serif;
+  --hindvadodara: "Hind Vadodara", sans-serif;
+  --lato: "Lato", sans-serif;
+  --roboto: "Roboto", sans-serif;
+  --sofia: "Sofia", cursive;
+
+}
+
+.primary-color{
+  color: var(--skyblue);
+}
+.bg-image{
+  background-image: url(../images/WebBackground.jpg);
+}
+.bg-color{
+  background-color: var(--skyblue) !important;
+}
+.text-color{
+  color: var(--black);
+}
+.font-hindvadodara{
+  font-family: var(--hindvadodara);
+}
+.bar-color{
+  color: var(--skyblue);
+}
+
+/* header */
+header{
+  font-family: var(--hindvadodara);
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration-color: var(--black);
+  margin: auto;
+  background-image: url("/images/WebBackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+a:link{
+  color: var(--black);
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.container{
+  height: 550px;
+  width: 100%;
+}
+
+div.center {
+  margin: auto;
+  width: 85%;
+  padding: 10px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.row {
+  margin: auto;
+  width: 100%;
+}
+/* Create four equal columns that floats next to each other */
+.column {
+  width: 33.33%;
+  padding: 30px;
+  height: 300px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.column2 {
+  margin: auto;
+  width: 85%;
+  padding: 30px;
+  height: auto;
+}
+.card{
+  width: 100%;
+  height: auto;
+
+}
+.button4{
+  background: #ccc;
+  border-color: transparent;
+  border-radius: 20px;
+  font-size: small;
+}
+
+
+.content{
+  background-color: var(--skyblue);
+
+}
+.content .col .d-flex a{
+  text-decoration: none;
+  color: var(--black);
+  padding: 2%;
+}
