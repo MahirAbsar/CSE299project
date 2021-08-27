@@ -5,6 +5,7 @@ from .forms import SignUpForm, UserInfoChange, ProfilePicForm
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 import re
 
 # Create your views here.
@@ -22,11 +23,14 @@ def signUp(request):
         pattern = re.compile(r"^[a-z]*\.[a-z]*[0-9]*@northsouth.edu")
         matches = pattern.findall(email_string)
         if len(matches) == 0 or matches[0] == ".":
+            messages.error(request, "Sorry, You cannot Use this Service")
             return render(request, 'login_app/error.html')
         else:
             if signup.is_valid():
                 signup.save()
                 registered = True
+                messages.success(request, "Registration successful")
+                return HttpResponseRedirect(reverse('login_app:signin'))
     else:
         signup = SignUpForm()
 
@@ -45,7 +49,10 @@ def signIn(request):
             if user:
                 login(request, user)
                 success = True
+                messages.success(request, "You are logged in")
+                return HttpResponseRedirect(reverse('blog_app:blog_list'))
             else:
+
                 return render(request, 'login_app/error.html', context={"success": False})
         else:
             active = False
@@ -62,6 +69,7 @@ def signIn(request):
 @login_required
 def signOut(request):
     logout(request)
+    messages.error(request, "You are Logged Out")
     # return render(request, 'blog_app/blog_list.html')
     return HttpResponseRedirect(reverse('blog_app:blog_list'))
 
