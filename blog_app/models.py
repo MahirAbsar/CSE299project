@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-
+# The database table for a single blog
 class Blog(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_blog")
@@ -16,7 +16,7 @@ class Blog(models.Model):
 
     class Meta:
         ordering = ['-publish_date']
-
+        
     def __str__(self):
         return self.blog_title
 
