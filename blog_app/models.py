@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+# The database table for a single blog
+
 
 class Blog(models.Model):
     user = models.ForeignKey(
@@ -23,9 +25,9 @@ class Blog(models.Model):
 
 class Comment(models.Model):
     blog = models.ForeignKey(
-        Blog, on_delete=models.CASCADE, related_name="blog_comment")
+            Blog, on_delete=models.CASCADE, related_name="blog_comment")
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="user_comment")
+                User, on_delete=models.CASCADE, related_name="user_comment")
     comment = models.TextField()
     comment_date = models.DateTimeField(auto_now_add=True)
 
@@ -35,9 +37,9 @@ class Comment(models.Model):
 
 class Like(models.Model):
     blog = models.ForeignKey(
-        Blog, on_delete=models.CASCADE, related_name="blog_like")
+                Blog, on_delete=models.CASCADE, related_name="blog_like")
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="user_like")
+                User, on_delete=models.CASCADE, related_name="user_like")
 
     def __str__(self):
         return self.user.username
