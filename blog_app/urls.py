@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 app_name = "blog_app"
+# Contails all urls for the blog app
 
 urlpatterns = [
 
