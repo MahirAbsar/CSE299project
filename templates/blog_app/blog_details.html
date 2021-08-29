@@ -36,8 +36,22 @@
   {% endif %}
 </div>
 <br />
+<div class="row">
+  <div class="col-sm-6">
+    <h3>Comments:</h3>
+    <hr />
+    {% for comments in blog.blog_comment.all %}
+    <h5><a href="#">@{{comments.user}}</a> {{ comments.comment }}</h5>
 
-
+    <h6>{{ comments.comment_date }}</h6>
+    {% endfor %}
+  </div>
+  <div class="col-sm-6">
+    <form method="POST">
+      {{ form|crispy }} {% csrf_token %}
+      <button type="submit" class="btn btn-success btn-sm">Submit</button>
+    </form>
+  </div>
 </div>
 
 {% endblock %}
