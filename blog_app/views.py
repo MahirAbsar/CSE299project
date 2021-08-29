@@ -3,7 +3,8 @@ from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, TemplateView, UpdateView
-from blog_app.models import Blog
+from blog_app.models import Blog, Like
+from blog_app.forms import CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
@@ -40,8 +41,43 @@ class BlogList (ListView):
 @login_required
 def blog_details(request, slug):
     blog = Blog.objects.get(slug=slug)
+    commentForm = CommentForm()
+    reacted_blog = Like.objects.filter(blog=blog, user=request.user)
+    print(reacted_blog)
+    if reacted_blog:
+        liked = True
+    else:
+        liked = False
+    if request.method == 'POST':
+        commentForm = CommentForm(request.POST)
+        if commentForm.is_valid():
+            commentInfo = commentForm.save(commit=False)
+            commentInfo.user = request.user
+            commentInfo.blog = blog
+            commentInfo.save()
             return HttpResponseRedirect(reverse('blog_app:blog_details', kwargs={'slug': slug}))
-    return render(request, 'blog_app/blog_details.html', context={'blog': blog})
+    return render(request, 'blog_app/blog_details.html', context={'blog': blog, 'form': commentForm, 'liked': liked})
+
+
+@login_required
+def liked_blog(request, pk):
+    blog = Blog.objects.get(pk=pk)
+    user = request.user
+    already_liked = Like.objects.filter(blog=blog, user=user)
+    if not already_liked:
+        user_liked = Like(blog=blog, user=user)
+        user_liked.save()
+
+    return HttpResponseRedirect(reverse('blog_app:blog_details', kwargs={'slug': blog.slug}))
+
+
+@login_required
+def unlike_blog(request, pk):
+    blog = Blog.objects.get(pk=pk)
+    user = request.user
+    user_disliked = Like.objects.filter(blog=blog, user=user)
+    user_disliked.delete()
+    return HttpResponseRedirect(reverse('blog_app:blog_details', kwargs={'slug': blog.slug}))
 
 
 class UpdateBlogs(LoginRequiredMixin, UpdateView):
@@ -53,4 +89,8 @@ class UpdateBlogs(LoginRequiredMixin, UpdateView):
         return reverse_lazy('blog_app:blog_details', kwargs={'slug': self.object.slug})
 
 
-
+def search(request):
+    query = request.GET['query']
+    blogs = Blog.objects.filter(blog_title__icontains=query)
+    dict = {'blogs': blogs}
+    return render(request, 'blog_app/search.html', context=dict)
