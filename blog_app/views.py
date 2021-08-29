@@ -9,11 +9,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 # Create your views here.
 
-
+# Contains all the blog of a particular user
 class MyBlogs(LoginRequiredMixin, TemplateView):
     template_name = "blog_app/my_blogs.html"
-
-
+    
+# Class based views
+# Function for creating a new blog
 class CreateBlog(LoginRequiredMixin, CreateView):
     model = Blog
     template_name = 'blog_app/write_blog.html'
@@ -30,20 +31,21 @@ class CreateBlog(LoginRequiredMixin, CreateView):
         blog_obj.save()
         return HttpResponseRedirect(reverse('home'))
 
-
+# All the blogs
 class BlogList (ListView):
     context_object_name = "blogs"
     model = Blog
     template_name = "blog_app/blog_list.html"
 
-
+# On login view the blog details
 @login_required
 def blog_details(request, slug):
     blog = Blog.objects.get(slug=slug)
             return HttpResponseRedirect(reverse('blog_app:blog_details', kwargs={'slug': slug}))
     return render(request, 'blog_app/blog_details.html', context={'blog': blog})
 
-
+# Class based views
+# function for updating blogs
 class UpdateBlogs(LoginRequiredMixin, UpdateView):
     model = Blog
     fields = ('blog_title', 'blog_content', 'blog_image')
